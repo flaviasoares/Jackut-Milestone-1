@@ -26,24 +26,29 @@ O sistema segue o padrão de **Facade**, encapsulando a lógica principal em uma
 ## Diagrama de Classes
 Abaixo está um diagrama representando a estrutura do sistema:
 
-```mermaid
-title Diagrama de Classes
-classDiagram
-    class Facade {
-        - Map usuarios
-        - usuarioLogado
-        + criarUsuario()
-        + abrirSessao()
-        + getAtributoUsuario()
-    }
-    class Usuario {
-        - nome
-        - login
-        - senha
-        + getNome()
-        + getSenha()
-    }
-    Facade --> Usuario
+```
++--------------------+
+|      Facade       |
++--------------------+
+| - usuarios: Map   |
+| - usuarioLogado   |
++--------------------+
+| + criarUsuario()  |
+| + abrirSessao()   |
+| + getAtributoUsuario() |
++--------------------+
+        |
+        v
++-----------------+
+|    Usuario     |
++-----------------+
+| - nome         |
+| - login        |
+| - senha        |
++-----------------+
+| + getNome()    |
+| + getSenha()   |
++-----------------+
 ```
 
 Esse diagrama ilustra a relação entre a `Facade` e os objetos `Usuario`.
