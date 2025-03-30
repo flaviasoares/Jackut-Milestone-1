@@ -1,6 +1,4 @@
-# Jackut-Milestone-1
-
-**Relatório de Design do Sistema**
+# System Design Report
 
 ## Introdução
 O sistema desenvolvido tem como objetivo gerenciar usuários através de uma estrutura simples de autenticação. O design foca na modularidade e na segurança básica de armazenamento de credenciais.
@@ -28,29 +26,24 @@ O sistema segue o padrão de **Facade**, encapsulando a lógica principal em uma
 ## Diagrama de Classes
 Abaixo está um diagrama representando a estrutura do sistema:
 
-```
-+--------------------+
-|      Facade       |
-+--------------------+
-| - usuarios: Map   |
-| - usuarioLogado   |
-+--------------------+
-| + criarUsuario()  |
-| + abrirSessao()   |
-| + getAtributoUsuario() |
-+--------------------+
-        |
-        v
-+-----------------+
-|    Usuario     |
-+-----------------+
-| - nome         |
-| - login        |
-| - senha        |
-+-----------------+
-| + getNome()    |
-| + getSenha()   |
-+-----------------+
+```mermaid
+title Diagrama de Classes
+classDiagram
+    class Facade {
+        - Map usuarios
+        - usuarioLogado
+        + criarUsuario()
+        + abrirSessao()
+        + getAtributoUsuario()
+    }
+    class Usuario {
+        - nome
+        - login
+        - senha
+        + getNome()
+        + getSenha()
+    }
+    Facade --> Usuario
 ```
 
 Esse diagrama ilustra a relação entre a `Facade` e os objetos `Usuario`.
